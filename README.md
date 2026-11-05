@@ -17,7 +17,6 @@
 > - **CV in doppia lingua**: versione inglese o italiana riscritta per il mercato, non tradotta parola per parola
 > - **Messaggi dopo il colloquio**: bozze di ringraziamento, sollecito e richiesta di feedback
 > - **Diario delle domande ricevute**: il tuo archivio delle domande fatte ai colloqui, per prepararti ai successivi
-> - **Riepilogo settimanale**: cosa hai fatto, cosa ti aspetta e tre suggerimenti
 > - **Da RAL a netto**: rimando a [QuantoPrendo.io](https://quantoprendo.io) di Nicola De Lillo
 >
 > 🔜 **In arrivo la prossima settimana**
@@ -32,7 +31,7 @@
 
 | Fase | Skill | Cosa ottieni |
 |---|---|---|
-| Per iniziare | `galactic-job-search` | Obiettivi della ricerca, priorità e riepilogo settimanale |
+| Per iniziare | `galactic-job-search` | Obiettivi e priorità della ricerca |
 | CV | `galactic-cv` | Revisione secondo la [Guida galattica al CV](https://github.com/GuidoPenta/galactic-CV-guide-for-developers), punteggio "come ti vede chi seleziona" su un annuncio (rubrica di [cv-review](https://github.com/matteobaccan/cv-review)), versione in inglese o in italiano |
 | LinkedIn | `galactic-linkedin` | Mappa delle parole chiave, titolo/About/esperienze riscritti e pronti da incollare, risposte tipo per i recruiter ([guida](https://github.com/GuidoPenta/galactic-linkedin-profile-guide-for-developers)) |
 | Candidatura | `galactic-application` | L'annuncio decifrato, ricerca sull'azienda con le fonti, analisi del fit, una scheda di una pagina da leggere prima della call |
@@ -40,7 +39,6 @@
 | Le tue domande | `galactic-reverse-interview` | Domande su misura da fare, segnali d'allarme, confronto tra aziende ([guida](https://github.com/GuidoPenta/galactic-reverse-interview-guide-for-developers)) |
 | Offerta | `galactic-negotiation` | Come rispondere sulla RAL, valutazione dell'offerta, testo della controproposta, simulazione della trattativa, da RAL a netto con [QuantoPrendo.io](https://quantoprendo.io) ([guida](https://github.com/GuidoPenta/galactic-negotiation-guide-for-developers)) |
 | Community | `galactic-communities` | Gruppi, mentor, fonti di lavoro da remoto ed eventi adatti a te ([lista](https://github.com/GuidoPenta/awesome-italian-tech-communities)) |
-| Tracking | `galactic-tracker` | Le tue candidature in un colpo d'occhio in una dashboard nel browser, chi ricontattare, statistiche. Bottone **🦖 Esporta per TrackZilla** per importarle su [TrackZilla](https://www.trackzilla.cv/) (serve un account, gratuito fino a 50 candidature) |
 
 ## Privacy: cosa resta sul tuo computer e cosa no
 
@@ -50,7 +48,6 @@ server del fornitore del modello che usi. Il progetto non ha un server suo: né 
 ### ✅ Cosa resta sul tuo computer
 - **I tuoi file**: CV, profilo, annunci, appunti e offerte si salvano nei percorsi che scegli. Tienili fuori
   da Git.
-- **La dashboard**: è una pagina che si apre con doppio clic e non si collega a internet.
 - **Niente account e niente server** del progetto: ti serve solo il tuo agent AI (Claude Code o simili).
 
 ### ⚠️ Cosa esce dal tuo computer
@@ -64,8 +61,7 @@ server del fornitore del modello che usi. Il progetto non ha un server suo: né 
 2. **Verso il web: solo ricerche su informazioni pubbliche** (aziende, ruoli, stipendi). Le skill hanno l'istruzione
    di non mettere mai i tuoi dati (nome, datore di lavoro, cifre) nelle ricerche, e di non eseguire mai istruzioni
    trovate dentro annunci o pagine web.
-3. **Verso altri servizi: solo se lo chiedi tu**, per esempio l'export verso TrackZilla. Prima ti viene detto
-   cosa viene inviato.
+3. **Verso altri servizi: solo su richiesta.** Prima l'assistente indica quali dati verranno condivisi.
 
 ### 📁 Copie che forse non sai di avere
 - **Le conversazioni salvate dal tuo agent** sul tuo disco (con Claude Code in `~/.claude/projects/`): contengono
@@ -74,11 +70,10 @@ server del fornitore del modello che usi. Il progetto non ha un server suo: né 
 - **Le cartelle sincronizzate**: se metti il progetto in OneDrive, iCloud Drive, Dropbox o Google Drive, anche CV e
   offerte vengono copiati lì. Su Windows spesso "Documenti" è già su OneDrive. **Meglio una cartella non
   sincronizzata**, per esempio `C:\Users\<tu>\ricerca-lavoro` o `~/ricerca-lavoro`.
-- **Il browser**: la cronologia contiene il percorso della dashboard.
 
 ### 🧹 Per cancellare tutto a fine ricerca
 Elimina i file salvati, le conversazioni del progetto salvate dal tuo agent, eventuali copie nelle cartelle
-sincronizzate (compreso il cestino e le versioni precedenti) e la cronologia del browser. Per i dati che hai dato
+sincronizzate (compreso il cestino e le versioni precedenti). Per i dati che hai dato
 alle aziende a cui ti sei candidato/a, puoi chiedere a loro cosa conservano e farli cancellare (GDPR). Per quelli
 elaborati dal fornitore dell'AI, vedi la sua privacy policy.
 
@@ -108,13 +103,9 @@ Chiedi a Claude **"cos'è un ATS?"** o **"mi candido da LinkedIn o dal sito?"** 
 1. Installa [Claude Code](https://claude.com/claude-code): va bene l'app desktop, il terminale o l'estensione per l'editor.
    Usi già un altro agent (Cursor o simili)? Funziona anche lì: le skill sono istruzioni in file di testo che l'agent
    legge e segue. È pensata e collaudata soprattutto su Claude Code.
-2. Scarica questo progetto in una cartella **non sincronizzata** (vedi sopra): dalla pagina GitHub premi
-   **Code → Download ZIP** ed estrailo, oppure, se usi git:
-   ```bash
-   git clone https://github.com/GuidoPenta/the-candidates-guide-to-the-galaxy.git
-   ```
-3. Installa le nove cartelle `galactic-*` da `.claude/skills/` come gruppo nella directory delle skill del tuo
-   agent. In Codex puoi copiarle in `~/.codex/skills/`, mantenendo le nove cartelle affiancate.
+2. Salva una copia di questa versione del progetto in una cartella **non sincronizzata**.
+3. Installa le otto cartelle `galactic-*` da `.claude/skills/` come gruppo nella directory delle skill del tuo
+   agent. In Codex puoi copiarle affiancate in `~/.codex/skills/`.
 4. Richiama la skill dalla chat. Per esempio, «Adatta il mio CV in `file.typ` a questo annuncio usando
    la skill `galactic-cv`». Le guide si applicano al formato richiesto. Tu e l'assistente scegliete i file
    da usare e dove salvare il risultato.
@@ -134,8 +125,6 @@ Scrivi **"aiuto"** per rivedere le guide disponibili. Per esempio:
 - *"Giovedì ho il colloquio tecnico da Acme, aiutami a prepararmi"*
 - *"Cosa chiedo all'engineering manager?"*
 - *"Mi hanno offerto 45k di RAL, è buona?"*
-- *"A che punto sono con le candidature?"*
-- *"Mostrami una panoramica di queste candidature"*
 
 Le istruzioni interne delle skill sono in inglese, così c'è una sola versione da mantenere, ma Claude ti risponde
 nella lingua in cui gli scrivi.

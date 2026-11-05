@@ -12,7 +12,6 @@ workspace/*
 /*.csv
 /*.png
 /*.jpg
-/dashboard.html
 CLAUDE.local.md
 
 # OS / editor noise

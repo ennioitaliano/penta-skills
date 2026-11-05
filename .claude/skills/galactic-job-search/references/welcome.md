@@ -26,11 +26,6 @@ Built on Guido Penta's Galactic guides, with additional checks and examples from
   (for gross → net, I'll point you to QuantoPrendo.io)
 - 👥 **Communities**: "Where can I find groups for frontend developers?"
 - 🤖 **ATS**: "What is an ATS?", "Should I apply on LinkedIn or on the company site?" (myths vs facts)
-- 📊 **Tracking**: "I applied to Acme", "The interview went well", "Where am I with my applications?",
-  "Weekly review"
-
-**Dashboard and TrackZilla**: the tracking guide includes a pipeline dashboard template and a
-[TrackZilla](https://www.trackzilla.cv/) CSV format reference. The export excludes contacts and private logs.
 
 **Good to know**
 - I never invent experience or numbers: if something's missing, I ask you.

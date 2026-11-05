@@ -22,5 +22,3 @@ See the [privacy guidance](.claude/skills/galactic-job-search/references/privacy
 - **Examples in references use fictional data only** (Acme, Jane Doe). Before any commit or PR, check the staged
   diff and the PR text for anything from `workspace/`: names, companies applied to, figures, log lines. Never
   `git add -f` anything under `workspace/`. Keep your own job search in a separate clone from the one you contribute from.
-- The dashboard template (`galactic-tracker/assets/dashboard.html`) has a Content-Security-Policy with the SHA-256
-  hash of its main inline script. If you change that script, recompute the hash (see `references/dashboard.md`).

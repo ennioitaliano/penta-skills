@@ -75,7 +75,6 @@ Each entry carries tags in backticks. Combine them to filter.
   in tech and digital, reviewed by hand rather than scraped. Created and run by **Francesco Napoletano**
   (developer). It is explicitly *not* a recruitment agency: it does not collect CVs or manage applications;
   candidates apply directly on the company's page. Free for job seekers (no paywall).
-  TrackZilla (see galactic-tracker) was born as an idea in its Telegram chat.
 - **Who it's for:** Italian tech workers who want full-remote roles: software engineering (frontend, backend,
   fullstack), product, data, design.
 - **Links (verified):**

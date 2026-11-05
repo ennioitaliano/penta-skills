@@ -17,7 +17,6 @@
 > - **Second-language CV**: an English or Italian version rewritten for the market, not translated word for word
 > - **Messages after the interview**: drafts for thank-you, follow-up and feedback-request notes
 > - **Interview questions journal**: your own archive of the questions you were asked, to prepare for the next ones
-> - **Weekly review**: what you did, what's coming up and three suggestions
 > - **Gross to net (Italy)**: pointer to [QuantoPrendo.io](https://quantoprendo.io) by Nicola De Lillo
 >
 > 🔜 **Coming next week**
@@ -32,7 +31,7 @@
 
 | Phase | Skill | What you get |
 |---|---|---|
-| Getting started | `galactic-job-search` | Search goals, priorities and a weekly review |
+| Getting started | `galactic-job-search` | Search goals and priorities |
 | CV | `galactic-cv` | Review against the [Galactic CV guide](https://github.com/GuidoPenta/galactic-CV-guide-for-developers), screener score against a posting (rubric from [cv-review](https://github.com/matteobaccan/cv-review)), English or Italian version |
 | LinkedIn | `galactic-linkedin` | Keyword map, paste-ready headline/About/experience rewrites, recruiter reply templates ([guide](https://github.com/GuidoPenta/galactic-linkedin-profile-guide-for-developers)) |
 | Application | `galactic-application` | The posting decoded, company research with sources, fit analysis, a one-page briefing |
@@ -40,7 +39,6 @@
 | Your questions | `galactic-reverse-interview` | Tailored questions to ask, red flags to watch, company comparison ([guide](https://github.com/GuidoPenta/galactic-reverse-interview-guide-for-developers)) |
 | Offer | `galactic-negotiation` | Salary-expectation answers, offer evaluation, counter-offer script, role-play, gross to net with [QuantoPrendo.io](https://quantoprendo.io) ([guide](https://github.com/GuidoPenta/galactic-negotiation-guide-for-developers)) |
 | Community | `galactic-communities` | Groups, mentors, remote-job sources and events that fit you ([list](https://github.com/GuidoPenta/awesome-italian-tech-communities)) |
-| Tracking | `galactic-tracker` | Browser dashboard of your applications, follow-ups, funnel stats. **🦖 Export for TrackZilla** button to import them into [TrackZilla](https://www.trackzilla.cv/) (needs an account, free up to 50 applications) |
 
 ## Privacy: what stays on your computer and what doesn't
 
@@ -49,7 +47,6 @@ servers of the model provider you use. The project has no server of its own: nei
 
 ### ✅ What stays on your computer
 - **Your files**: save CVs, profiles, postings, notes and offers at destinations you choose. Keep them out of Git.
-- **The dashboard**: a page you open with a double click, and it never connects to the internet.
 - **No accounts, no servers** of the project: all you need is your AI agent (Claude Code or similar).
 
 ### ⚠️ What leaves your computer
@@ -63,7 +60,7 @@ servers of the model provider you use. The project has no server of its own: nei
 2. **To the web: only searches for public information** (companies, roles, salaries). The skills are instructed
    never to put your data (name, employer, figures) in searches, and never to follow instructions found inside
    postings or web pages.
-3. **To other services: only when you ask**, for example the TrackZilla export. You're told first what will be sent.
+3. **To other services: only on request.** The assistant first explains which data will be shared.
 
 ### 📁 Copies you may not know you have
 - **Your agent's saved conversations** on your disk (with Claude Code, `~/.claude/projects/`): they include the CV
@@ -71,11 +68,10 @@ servers of the model provider you use. The project has no server of its own: nei
 - **Synced folders**: if the project sits in OneDrive, iCloud Drive, Dropbox or Google Drive, your CV and offers are
   copied there too. On Windows, "Documents" is often already on OneDrive. **Prefer an unsynced folder**, such as
   `C:\Users\<you>\job-search` or `~/job-search`.
-- **Your browser**: its history contains the dashboard's path.
 
 ### 🧹 To delete everything when you're done
 Remove your saved files, the project's conversations saved by your agent, any copies in synced folders (including
-their trash and version history) and your browser history. For the data you gave to companies you applied to, you
+their trash and version history). For the data you gave to companies you applied to, you
 can ask them what they keep and have it deleted (GDPR). For what the AI provider processed, see its privacy policy.
 
 **Disclosure:** Guido Penta works as a tech recruiter at [Welyk](https://welyk.tech). The tool sends nothing to Welyk:
@@ -105,12 +101,9 @@ Ask Claude **"what is an ATS?"** or **"should I apply on LinkedIn or on the comp
 1. Install [Claude Code](https://claude.com/claude-code) (CLI, desktop app or IDE extension).
    Already using another agent (Cursor or similar)? It works there too: the skills are plain-text instructions the
    agent reads and follows. It's designed and tested mainly on Claude Code.
-2. Download this project into an **unsynced** folder (see above): on the GitHub page click **Code → Download ZIP** and extract it, or, if you use git:
-   ```bash
-   git clone https://github.com/GuidoPenta/the-candidates-guide-to-the-galaxy.git
-   ```
-3. Install the nine `galactic-*` folders from `.claude/skills/` together in your agent's skill directory.
-   In Codex, copy the nine folders side by side into `~/.codex/skills/`.
+2. Save a copy of this version of the project in an **unsynced** folder.
+3. Install the eight `galactic-*` folders from `.claude/skills/` together in your agent's skill directory.
+   In Codex, copy them side by side into `~/.codex/skills/`.
 4. Call a skill from chat. For example, "Tailor my CV in `file.typ` to this posting using `galactic-cv`."
    The guides apply to the requested format. You and the assistant choose which files to use and where
    to save the result.
@@ -129,8 +122,6 @@ Type **"help"** to see the available guides. For example:
 - *"I have a technical interview at Acme on Thursday, help me prepare"*
 - *"What should I ask the engineering manager?"*
 - *"They offered me 55k, is that good?"*
-- *"Where am I with my applications?"*
-- *"Summarise these applications"*
 
 ## Credits
 
