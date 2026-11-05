@@ -1,23 +1,18 @@
-# Welcome guide — what Claude shows the user
+# Welcome guide
 
-Show this **on the first run** (before the profile questions) and **whenever the user asks for help**
+Use this overview **when the user asks for help**
 ("aiuto", "help", "cosa sai fare?", "come funziona?", `/galactic-job-search` with no other request).
 
 Rules:
 - Write it in the user's language. The text below is the content to convey, not a script to paste: keep the
   structure, the emoji headings and the example requests, translated and natural.
 - Keep it to one screen. No walls of text.
-- Replace `<PROJECT>` with the absolute path of this project folder, so the paths are real and clickable.
-- In the "Your dashboard" part, say whether `workspace/dashboard.html` exists yet. If it doesn't, say it
-  appears after the first application.
-- If the user asked only for help (not the first run), show it and stop. Don't restart the onboarding.
 
 ---
 
 ## 🌌 The Candidate's Guide to the Galaxy: your coach from CV to signed offer. Don't panic.
 
-Built on Guido Penta's Galactic guides. You talk, I do the work. Your files stay on your computer; what you have
-me read is processed by the AI model provider (see the README's privacy section).
+Built on Guido Penta's Galactic guides, with additional checks and examples from the skill pack.
 
 **What I can do** (just ask, in your own words):
 - 📄 **CV**: "Review my CV", "Tailor my CV for this job", "Make the English version of my CV"
@@ -34,21 +29,10 @@ me read is processed by the AI model provider (see the README's privacy section)
 - 📊 **Tracking**: "I applied to Acme", "The interview went well", "Where am I with my applications?",
   "Weekly review"
 
-**Your dashboard**: a page with all your applications, deadlines and stages.
-- File: `<PROJECT>/workspace/dashboard.html`. Double-click it, or just ask me "open my dashboard".
-- It's optional: I update it only when you ask ("update my dashboard"), then refresh the page (F5).
-
-🦖 **TrackZilla**: prefer to track online as well? [TrackZilla](https://www.trackzilla.cv/) is a free
-application tracker. In the dashboard, the **Export for TrackZilla** button gives you a file to import there in
-one go (or ask me "export to TrackZilla"). You need a TrackZilla account (free plan: up to 50 applications).
-Contacts and your log are never included.
-
-**Your files**: everything is in `<PROJECT>/workspace/` (CV, profile, one folder per application).
-It's never uploaded to GitHub. Tip: keep this project out of OneDrive, iCloud or Dropbox (see the README).
+**Dashboard and TrackZilla**: the tracking guide includes a pipeline dashboard template and a
+[TrackZilla](https://www.trackzilla.cv/) CSV format reference. The export excludes contacts and private logs.
 
 **Good to know**
 - I never invent experience or numbers: if something's missing, I ask you.
 - When advice comes from Guido's guides I say so, with a link. Otherwise I tell you it's general advice.
 - Write "help" anytime to see this again.
-
-**Let's start →** (on the first run, continue with the onboarding: ask for the CV and the first profile questions)

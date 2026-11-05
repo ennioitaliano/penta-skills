@@ -243,10 +243,8 @@ Fix hints straight from Di Fresco for the candidate:
 
 ## Output format (candidate report)
 
-Adapted from cv-review's `report-template.md`. Fixed sections, in this order; no empty sections
-(write `None` or `N/A`). Suggested filename: `<cv-name>-<position>-review.md` (position short,
-lowercase, hyphenated) so reviews against different postings don't overwrite each other; if one
-already exists for the same CV and posting, update it.
+Adapted from cv-review's `report-template.md`. Use these sections in order. Mark inapplicable
+sections `None` or `N/A`.
 
 ```markdown
 # CV review – <Name Surname> vs <Position> – <date>

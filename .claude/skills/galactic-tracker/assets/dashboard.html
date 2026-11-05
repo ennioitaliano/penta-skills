@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-7epNKVhG2rEVnZQMuB1QlLJOR8/Ls5/q1kTokTj896g='; style-src 'unsafe-inline'; img-src 'none'; connect-src 'none'; font-src 'none'; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-CFjxVLkvAUCbYQb1qX/w34tOpZcF3W+a3+PIl0PZv7w='; style-src 'unsafe-inline'; img-src 'none'; connect-src 'none'; font-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Candidate's Guide to the Galaxy</title>
 <!--
   The Candidate's Guide to the Galaxy dashboard — template.
-  Claude copies this file to workspace/dashboard.html and replaces the JSON between the
-  DATA markers with the user's data (schema: .claude/skills/galactic-tracker/references/dashboard.md).
+  The JSON between the DATA markers is the dashboard data (schema: ../references/dashboard.md).
   Self-contained: no network, no dependencies. Open it with a double click.
 -->
 <style>
@@ -234,7 +233,6 @@ dialog.drawer::backdrop { background: rgba(10, 12, 18, .45); }
   border-radius: 50%; background: var(--accent);
 }
 .log time { display: block; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
-.path { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; color: var(--muted); overflow-wrap: anywhere; }
 .welcome { text-align: center; padding: 64px 16px; color: var(--muted); }
 .welcome h2 { color: var(--text); }
 </style>
@@ -257,20 +255,20 @@ dialog.drawer::backdrop { background: rgba(10, 12, 18, .45); }
   var I18N = {
     en: {
       title: "Job search", generated: "Updated", never: "not generated yet",
-      stale: "This dashboard is {n} days old. Ask Claude to “update my dashboard”.",
+      stale: "This dashboard is {n} days old.",
       theme: "Theme",
       kActive: "In progress", kSaved: "Saved", kInterviewing: "Interviewing", kOffers: "Offers", kSent: "Applications sent",
-      upcoming: "Coming up", noUpcoming: "Nothing scheduled. Ask Claude “what should I do next?”.",
+      upcoming: "Coming up", noUpcoming: "Nothing scheduled.",
       funnel: "Funnel", funnelNote: "Small numbers are noisy: conversion rates become meaningful after about 5 applications.",
       funnelEmpty: "No applications sent yet.",
       board: "Pipeline", closed: "Closed", noClosed: "Nothing closed yet.",
       overdue: "overdue by {n} d", today: "today", tomorrow: "tomorrow", inDays: "in {n} days",
       company: "Company", role: "Role", outcome: "Outcome", closedOn: "Last update",
       facts: "Details", briefing: "Briefing", fit: "Fit", strengths: "Lead with", gaps: "Gaps",
-      questions: "Questions to ask", log: "Log", files: "Folder", nextStep: "Next step",
+      questions: "Questions to ask", log: "Log", nextStep: "Next step",
       f_status: "Status", f_source: "Source", f_location: "Location", f_mode: "Work mode", f_salary: "Salary",
       f_saved: "Saved on", f_applied: "Applied on", f_referral: "Referral", f_contacts: "Contacts", f_tags: "Tags",
-      welcomeH: "Your dashboard is empty", welcomeP: "Open this project in Claude Code and say “update my dashboard”. It will fill this page from your workspace.",
+      welcomeH: "Your dashboard is empty", welcomeP: "No applications to display.",
       close: "Close", fitWord: "fit",
       tzBtn: "Export for TrackZilla",
       tzTitle: "Export for TrackZilla",
@@ -282,27 +280,27 @@ dialog.drawer::backdrop { background: rgba(10, 12, 18, .45); }
       tzAccount: "You need a TrackZilla account (the free plan holds up to 50 applications). Once imported, the data is stored on TrackZilla’s servers.",
       tzSteps: "**Then:** open TrackZilla → **Applications** → **Import CSV** → choose the file → check the preview → confirm. Applications already there are skipped, so you can import again later.",
       tzDownload: "Download the file",
-      tzDone: "File downloaded: {n}. You’ll find it in your Downloads folder.",
+      tzDone: "File downloaded: {n}.",
       tzOpen: "Open TrackZilla ↗",
       status: { saved: "Saved", applied: "Applied", screening: "Screening", interviewing: "Interviewing", offer: "Offer",
         accepted: "Accepted", rejected: "Rejected", withdrawn: "Withdrawn", ghosted: "Ghosted" }
     },
     it: {
       title: "Ricerca di lavoro", generated: "Aggiornata", never: "non ancora generata",
-      stale: "Questa dashboard ha {n} giorni. Chiedi a Claude “aggiorna la dashboard”.",
+      stale: "Questa dashboard ha {n} giorni.",
       theme: "Tema",
       kActive: "In corso", kSaved: "Salvate", kInterviewing: "Ai colloqui", kOffers: "Offerte", kSent: "Candidature inviate",
-      upcoming: "In arrivo", noUpcoming: "Niente in programma. Chiedi a Claude “cosa faccio adesso?”.",
+      upcoming: "In arrivo", noUpcoming: "Niente in programma.",
       funnel: "Imbuto", funnelNote: "Con pochi numeri le percentuali ingannano: diventano utili da circa 5 candidature in su.",
       funnelEmpty: "Nessuna candidatura inviata per ora.",
       board: "Candidature", closed: "Chiuse", noClosed: "Nessuna candidatura chiusa.",
       overdue: "scaduto da {n} g", today: "oggi", tomorrow: "domani", inDays: "tra {n} giorni",
       company: "Azienda", role: "Ruolo", outcome: "Esito", closedOn: "Ultimo aggiornamento",
       facts: "Dettagli", briefing: "Scheda", fit: "Fit", strengths: "Punti di forza", gaps: "Lacune",
-      questions: "Domande da fare", log: "Diario", files: "Cartella", nextStep: "Prossimo passo",
+      questions: "Domande da fare", log: "Diario", nextStep: "Prossimo passo",
       f_status: "Stato", f_source: "Fonte", f_location: "Sede", f_mode: "Modalità", f_salary: "Stipendio",
       f_saved: "Salvata il", f_applied: "Inviata il", f_referral: "Referral", f_contacts: "Contatti", f_tags: "Tag",
-      welcomeH: "La dashboard è vuota", welcomeP: "Apri questo progetto in Claude Code e scrivi “aggiorna la dashboard”: riempirà questa pagina con i dati del tuo workspace.",
+      welcomeH: "La dashboard è vuota", welcomeP: "Nessuna candidatura da mostrare.",
       close: "Chiudi", fitWord: "fit",
       tzBtn: "Esporta per TrackZilla",
       tzTitle: "Esporta per TrackZilla",
@@ -314,7 +312,7 @@ dialog.drawer::backdrop { background: rgba(10, 12, 18, .45); }
       tzAccount: "Ti serve un account TrackZilla (il piano gratuito arriva a 50 candidature). Una volta importati, i dati stanno sui server di TrackZilla.",
       tzSteps: "**Poi:** apri TrackZilla → **Candidature** → **Import CSV** → scegli il file → controlla l’anteprima → conferma. Le candidature già presenti vengono saltate, quindi puoi reimportare più avanti.",
       tzDownload: "Scarica il file",
-      tzDone: "File scaricato: {n}. Lo trovi nella cartella Download.",
+      tzDone: "File scaricato: {n}.",
       tzOpen: "Apri TrackZilla ↗",
       status: { saved: "Salvata", applied: "Inviata", screening: "Screening", interviewing: "Colloqui", offer: "Offerta",
         accepted: "Accettata", rejected: "Rifiutata", withdrawn: "Ritirata", ghosted: "Sparita" }
@@ -581,7 +579,6 @@ dialog.drawer::backdrop { background: rgba(10, 12, 18, .45); }
       }).join("") + "</ul></section>");
     }
 
-    h.push("<section><h3>" + esc(T.files) + '</h3><div class="path">workspace/applications/' + esc(a.id) + "/</div></section>");
     h.push("</div>");
 
     drawer.innerHTML = h.join("");

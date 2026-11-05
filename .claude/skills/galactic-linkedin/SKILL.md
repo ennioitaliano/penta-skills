@@ -7,13 +7,10 @@ description: Reviews and rewrites a LinkedIn profile (headline, About, experienc
 
 Knowledge: `references/linkedin-guide.md`, an operational summary of
 [galactic-linkedin-profile-guide-for-developers](https://github.com/GuidoPenta/galactic-linkedin-profile-guide-for-developers).
-Workspace layout: `.claude/skills/galactic-job-search/references/workspace.md`.
 
-## Input
-You cannot access LinkedIn. Ask the user for one of:
-- the PDF export (the **Save to PDF** option in the profile's **More** (or **Resources**) menu), saved into `workspace/linkedin/`, or
-- the pasted text of each section (headline, About, experiences, skills…).
-Also read `workspace/profile.md` (target roles drive the keywords) and `workspace/cv/cv-master.md` if present.
+## Review context
+The profile text, screenshots or LinkedIn's **Save to PDF** export can support a review. Ask for missing
+sections only when relevant. Use the candidate's target roles to select keywords.
 
 ## Review
 Go section by section, following the order and checklists in `references/linkedin-guide.md`. For each section:
@@ -24,7 +21,7 @@ Go section by section, following the order and checklists in `references/linkedi
 - **Fix**: concrete rewritten text the user can paste, not just advice. Give 2–3 options for the headline.
 
 Always cover keywords first: list the terms a recruiter would search for the user's target roles, based on
-the profile and real postings in `workspace/applications/` if any. Then check where each term appears
+the profile and relevant postings, when available. Then check where each term appears
 (headline, About, experiences, skills) and where it's missing.
 
 If the guide doesn't cover something the user asks about (e.g. the custom URL or the Featured section), you
@@ -34,13 +31,12 @@ Never add skills, titles or achievements the user doesn't have. Ask instead.
 
 ## Consistency with the CV
 An extra check added by this skill [pack], not a rule from Guido's guides. Run the "Consistency with CV"
-checklist in the reference against `cv-master.md`: check titles, dates, companies and stack, and point out
+checklist in the reference when a CV is available. Check titles, dates, companies and stack, and point out
 each mismatch with a suggestion for which side to fix. The user decides.
 
 ## Output
-Save `workspace/linkedin/YYYY-MM-DD-review.md` with: summary (the top 3 changes that matter most), the keyword
-map, section-by-section verdicts and paste-ready rewrites. In chat, show the summary and the headline options,
-and point to the file for the rest.
+Lead with the three changes that matter most, then give the keyword map, section-by-section verdicts,
+headline options and paste-ready rewrites.
 
 ## Recruiter replies
 If the user asks how to answer recruiters: the guide suggests one preset reply for when you're not looking

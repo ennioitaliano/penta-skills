@@ -87,7 +87,7 @@ https://github.com/GuidoPenta/galactic-interview-guide-for-developers (MIT, © 2
          `galactic-reverse-interview`.)
 5. **Prepare the ground (environment).**
    - [ ] Decide the material you need: specific tools, IDE, pen and paper, notepad.
-   - [ ] Set up the workspace so you look ready and professional.
+   - [ ] Prepare your interview space so you look ready and professional.
    - [ ] **If unsure what's needed, ask the company** whether specific tools will be used.
 
 ## 4. Technical interview types: how to prepare and behave

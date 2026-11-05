@@ -32,7 +32,7 @@ Data/AI roles in Italy and EU remote: https://dataskew.io/jobs (Dataskew, by Adr
 
 ## 2. Define your targets before applying (dev guide §2.1)
 
-Not a whole career plan, but at least these six, written down (store in `workspace/profile.md`):
+Start with these six points:
 
 - [ ] **Desired role**: e.g. frontend, backend, fullstack, DevOps, data engineer. Map it with `job-roles.md`.
 - [ ] **Target seniority**: honestly junior, middle, senior or other.

@@ -1,23 +1,11 @@
-# Dashboard — how to generate `workspace/dashboard.html`
+# Dashboard template and data schema
 
-The dashboard is a **single self-contained HTML file** the user opens with a double click. There is no server
-and no network. It is read-only: to change something, the user talks to Claude, and Claude regenerates the page.
+The [HTML template](../assets/dashboard.html) renders application data in a self-contained page.
+The page is read-only and works offline.
 
-- Template: `.claude/skills/galactic-tracker/assets/dashboard.html`. Never edit it to insert data.
-- Output: `workspace/dashboard.html`. It is git-ignored, because it contains the user's data.
-
-## When to regenerate
-**Only when the user asks** ("open my dashboard", "update my dashboard", "aprimi / aggiorna la dashboard"). It is an optional extra: don't regenerate it after every update.
-After regenerating, tell the user the file path and that they can open it (or refresh it) in the browser.
-
-## How
-1. Read the template.
-2. Build the JSON below from every `workspace/applications/*/` folder.
-3. Replace **only** the text between `<script id="gjs-data" type="application/json">` and its `</script>`
-   (inside the `DATA:START` / `DATA:END` markers) with the JSON. Everything else stays byte-identical.
-4. In the serialized JSON, escape every `<` as `<`, `>` as `>` and `&` as `&`. These are valid
-   JSON escapes, and text from the web can then never close the script tag or inject markup.
-5. Write the result to `workspace/dashboard.html`.
+The template expects the JSON below between `<script id="gjs-data" type="application/json">` and its
+`</script>`. Keep the rest of the template byte-identical. In the serialized JSON, escape `<` as
+`\u003c`, `>` as `\u003e` and `&` as `\u0026` to keep data from breaking out of the script tag.
 
 ## JSON schema
 
@@ -52,7 +40,7 @@ After regenerating, tell the user the file path and that they can open it (or re
         "strengths": ["…"],
         "gaps": ["…"]
       },
-      "briefing": "Markdown: the content of briefing.md",
+      "briefing": "Markdown briefing",
       "questions": [{ "for": "Recruiter", "text": "…", "answer": null }],
       "log": [{ "date": "2026-09-25", "text": "Saved. Fit 72/100 (Call)." }],
       "trackzilla": {
@@ -71,24 +59,24 @@ After regenerating, tell the user the file path and that they can open it (or re
 ```
 
 Field sources and rules:
-- `id` is the application's folder name.
+- `id` uniquely identifies the application.
 - `status`, `saved_on`, `applied_on`, `source`, `source_url`, `referral`, `location`, `work_mode`, `salary_range`,
-  `contacts`, `next_step`, `next_step_date` and `tags` come from the `application.md` frontmatter as they are.
+  `contacts`, `next_step`, `next_step_date` and `tags` come from the application data.
 - `lang`: `"it"` or `"en"`, whichever matches the language of the conversation. Anything else falls back to English.
   Write `next_step`, `summary`, `briefing` and the log texts in that same language when you write them fresh.
 - `reached`: the furthest stage the application got to, one of `saved | applied | screening | interviewing | offer | accepted`.
   For open applications it equals `status`. For `rejected`, `withdrawn` and `ghosted` ones, read it from the log
   (e.g. rejected after the technical interview → `interviewing`). The funnel is computed from it.
 - `updated`: the date of the last log line.
-- `fit`: from `fit.md`, with the score (0–100) and decision from rubric Block A. The 3 strengths to lead with and the
-  main gaps go in as short strings. Omit `fit` if there's no `fit.md`.
-- `briefing`: the content of `briefing.md`, in Markdown. The renderer supports `#` headings, `-` lists,
+- `fit`: the score (0–100) and decision from rubric Block A, with short entries for strengths and gaps.
+  Omit `fit` when no assessment is available.
+- `briefing`: the pre-call briefing, in Markdown. The renderer supports `#` headings, `-` lists,
   `**bold**`, `_italic_`, `` `code` `` and `[text](https://…)` links, and nothing else. Keep it to one screen.
-- `questions`: from `questions.md`, the chosen questions in order, with the interviewer type in `for` and the
+- `questions`: the chosen questions in order, with the interviewer type in `for` and the
   answer heard, if any, in `answer`.
 - `log`: every dated line of the application's log.
 - `trackzilla`: the application's row for the **Export for TrackZilla** button, already converted with the mapping in
-  `references/trackzilla-format.md` (TrackZilla status and work-mode values, `application_date` = `applied_on`,
+  [the TrackZilla reference](trackzilla-format.md) (TrackZilla status and work-mode values, `application_date` = `applied_on`,
   the `job_description` layout from section D, query strings stripped from any URL). Set it to `null` for `saved`
   applications, which are left out. **Never** put contacts or log lines in it. The page builds the CSV locally,
   in the browser, when the user clicks the button.
@@ -101,6 +89,5 @@ template's main script** (contributors only), recompute the hash of the exact te
 (base64 of the SHA-256) and update the `sha256-…` value in the CSP meta tag. Inserting data doesn't change it.
 Contacts are third-party names: they're shown only in the local page, never exported.
 
-The page only contains what is already in the workspace, and it makes no network requests. Its external links (the
-posting URL and links in the briefing) only open when the user clicks them. Don't put `compensation.current`
-from `profile.md` in the dashboard.
+The page makes no network requests. External links open when clicked. Keep the candidate's current
+compensation and walk-away figure out of the dashboard.

@@ -1,5 +1,4 @@
-# Your personal data lives in workspace/ and must never be committed.
-# Only workspace/README.md is tracked; Claude creates the folders on first run.
+# Protect data in the legacy workspace/ folder. Only its README is tracked.
 workspace/*
 !workspace/README.md
 # Copies of the workspace ("workspace copy", "workspace-old"…)

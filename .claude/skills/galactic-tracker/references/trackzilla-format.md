@@ -20,8 +20,7 @@
 - **TrackZilla has CSV import and export** (since PR #18). In the **Applications** tab there are two buttons:
   **Export CSV** downloads all applications, and **Import CSV** opens a dialog that previews each row
   (errors and warnings) before saving. Export and import use the same format.
-- **Our path:** Claude writes `workspace/exports/trackzilla-YYYY-MM-DD.csv` in exactly that format (section D).
-  The user imports it with **Import CSV** in the app. The file never leaves the computer until the user uploads it.
+- Section D describes the CSV structure. TrackZilla receives the fields in the CSV when it is imported.
 - If the user doesn't see the Import CSV button yet (the live site not updated), fall back to guided manual
   entry (section A) or the pre-fill link (section B).
 - Status values (9, stored as text): `in-corso`, `ghosting`, `primo-colloquio`, `secondo-colloquio`,
@@ -92,7 +91,7 @@ imported as `in-corso` would flip to `ghosting`.
 | `user_profiles` | `first_name`, `middle_name`, `last_name`, `current_company`, `role`, `language_preference` (`it`\|`en`, default `it`) | own |
 | `subscribers` | Stripe subscription state | own |
 
-Privacy note for Claude: interview questions and company reviews are **shared with all TrackZilla users**
+Privacy note: interview questions and company reviews are **shared with all TrackZilla users**
 by design. Tell the user before suggesting they paste interview questions there, and never include names
 of interviewers or confidential details.
 
@@ -149,9 +148,9 @@ Applications tab → **Import CSV** → choose the file → check the preview �
   earlier row. Soft-deleted applications don't count, so a deleted one can come back.
 - Free plan: rows are imported only up to 50 applications in total; the dialog says how many were left out.
 
-### D. The file Claude writes
+### D. CSV structure
 
-`workspace/exports/trackzilla-YYYY-MM-DD.csv`: UTF-8 **with BOM**, comma-separated, every field in double
+Use UTF-8 **with BOM**, comma-separated values, every field in double
 quotes (inner quotes doubled), CRLF line endings, header row first:
 
 ```csv
@@ -164,12 +163,12 @@ Next: technical interview on 2026-10-02
 
 - One row per application, mapped with the tables below. Skip `saved` ones unless the user asks.
 - Contacts and the log are **never** in the file. Strip query strings (tracking or candidate tokens) from any URL.
-- Before writing it, tell the user what goes in (which applications, which fields) and that uploading it
-  stores that data on TrackZilla's servers.
+- Explain which applications and fields the CSV includes and that uploading it stores that data on
+  TrackZilla's servers.
 
 ---
 
-## Mapping from our local format (`application.md`)
+## Mapping from an application record
 
 ### Fields
 
@@ -184,10 +183,10 @@ Next: technical interview on 2026-10-02
 | `status` | `status` | see table below |
 | `source_url` | *(none)* | first line of `job_description`: `Source: <url>` (query string stripped) |
 | `location` | *(none)* | line in `job_description` (`Location: Milano`) and tag `loc-milano` |
-| `next_step`, `next_step_date` | *(none)* | line in `job_description` (`Next: ... on YYYY-MM-DD`); will go stale, local file stays the source of truth |
+| `next_step`, `next_step_date` | *(none)* | line in `job_description` (`Next: ... on YYYY-MM-DD`); reflects the next step at export time |
 | `contacts` | *(none)* | **never exported**: third-party personal data stays local |
 | dated log | *(none)* | **never exported**: stays local |
-| job ad text (if saved in the folder) | `job_description` | after the header lines above |
+| job ad text (if available) | `job_description` | after the header lines above |
 
 Suggested `job_description` layout:
 
@@ -225,16 +224,8 @@ Reverse mapping (TrackZilla → ours, e.g. when the user reads values off the ap
 
 ---
 
-## What Claude should do when the user says "put this in TrackZilla"
+## Importing and interpreting exports
 
-1. Say what will be exported (applications, fields; never contacts or the log) and that uploading the file
-   stores it on TrackZilla's servers. Proceed only once the user agrees.
-2. Mind the free plan limit (50 applications): active applications first, skip `saved`.
-3. Write `workspace/exports/trackzilla-YYYY-MM-DD.csv` as in section D.
-4. Tell the user: open TrackZilla → **Applications** → **Import CSV** → pick the file → check the preview → confirm.
-   Rows already there are skipped as duplicates, so re-importing a newer export is safe.
-5. If they don't see the button, fall back to sections A/B, one application at a time.
-6. The local `application.md` stays the source of truth. Never log in, fill forms or upload on the user's behalf.
-
-The reverse also works: a CSV the user exports from TrackZilla (**Export CSV**) can be read to create or
-update local `application.md` files, using the reverse status mapping above. Ask before overwriting anything.
+Use TrackZilla → **Applications** → **Import CSV**, then check the preview before confirming. The app skips
+duplicates. If CSV import is unavailable, see sections A and B. For a TrackZilla export, use the reverse
+status mapping above.

@@ -24,9 +24,9 @@
 
 ---
 
-## How Claude should use this file
+## How to select communities
 
-1. Read the user's profile (role, stack, seniority, city, remote preference, language) from the workspace.
+1. Use the candidate's role, stack, seniority, location, remote preference and language when known.
 2. Filter the entries below by tags. Recommend **5–8 entries at most**, each with *why it fits this user*
    and *one concrete first action* (e.g. "introduce yourself in the #presentazioni topic with stack + city + what you're looking for").
 3. Always consider the **Featured** section first: those are the most job-search-relevant places for an Italian tech audience.

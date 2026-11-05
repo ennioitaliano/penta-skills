@@ -32,7 +32,7 @@
 
 | Phase | Skill | What you get |
 |---|---|---|
-| Getting started | `galactic-job-search` | Private workspace, your profile, "what should I do next?" and a weekly review |
+| Getting started | `galactic-job-search` | Search goals, priorities and a weekly review |
 | CV | `galactic-cv` | Review against the [Galactic CV guide](https://github.com/GuidoPenta/galactic-CV-guide-for-developers), screener score against a posting (rubric from [cv-review](https://github.com/matteobaccan/cv-review)), English or Italian version |
 | LinkedIn | `galactic-linkedin` | Keyword map, paste-ready headline/About/experience rewrites, recruiter reply templates ([guide](https://github.com/GuidoPenta/galactic-linkedin-profile-guide-for-developers)) |
 | Application | `galactic-application` | The posting decoded, company research with sources, fit analysis, a one-page briefing |
@@ -48,9 +48,7 @@
 servers of the model provider you use. The project has no server of its own: neither Guido nor Welyk receives your data.
 
 ### ✅ What stays on your computer
-- **Your files**: CV, profile, postings, notes, offers, as plain text files in the `workspace/` folder. Git ignores
-  it, so `git push` never sends it to GitHub. If you upload or share the folder by hand (zip, upload), obviously
-  be careful.
+- **Your files**: save CVs, profiles, postings, notes and offers at destinations you choose. Keep them out of Git.
 - **The dashboard**: a page you open with a double click, and it never connects to the internet.
 - **No accounts, no servers** of the project: all you need is your AI agent (Claude Code or similar).
 
@@ -76,7 +74,7 @@ servers of the model provider you use. The project has no server of its own: nei
 - **Your browser**: its history contains the dashboard's path.
 
 ### 🧹 To delete everything when you're done
-Remove `workspace/`, the project's conversations saved by your agent, any copies in synced folders (including
+Remove your saved files, the project's conversations saved by your agent, any copies in synced folders (including
 their trash and version history) and your browser history. For the data you gave to companies you applied to, you
 can ask them what they keep and have it deleted (GDPR). For what the AI provider processed, see its privacy policy.
 
@@ -111,25 +109,28 @@ Ask Claude **"what is an ATS?"** or **"should I apply on LinkedIn or on the comp
    ```bash
    git clone https://github.com/GuidoPenta/the-candidates-guide-to-the-galaxy.git
    ```
-3. Open the folder in your agent. In Claude Code the skills in `.claude/skills/` load automatically.
-4. Say **"Let's start my job search"** (in any language). Claude will set up your workspace and ask for your CV.
+3. Install the nine `galactic-*` folders from `.claude/skills/` together in your agent's skill directory.
+   In Codex, copy the nine folders side by side into `~/.codex/skills/`.
+4. Call a skill from chat. For example, "Tailor my CV in `file.typ` to this posting using `galactic-cv`."
+   The guides apply to the requested format. You and the assistant choose which files to use and where
+   to save the result.
 
 ### Quick check (2 minutes)
 
-1. Open the project folder in your agent.
+1. Open a chat in your agent.
 2. Type **"help"**: the welcome guide shows everything it can do.
-3. Drop your CV (PDF or image) into `workspace/cv/original/`, or paste it, and type **"review my CV"**.
+3. Attach your CV (PDF or image), or paste it, and type **"review my CV"**.
 
 If you see the welcome guide and get a review that cites the Galactic CV guide, it works.
 
-Type **"help"** anytime to see what it can do and where your files and dashboard are. Then just talk to it:
+Type **"help"** to see the available guides. For example:
 - *"Review my CV"*
 - *"Here's a job I'm interested in: [paste]"*
 - *"I have a technical interview at Acme on Thursday, help me prepare"*
 - *"What should I ask the engineering manager?"*
 - *"They offered me 55k, is that good?"*
 - *"Where am I with my applications?"*
-- *"Open my dashboard"*
+- *"Summarise these applications"*
 
 ## Credits
 

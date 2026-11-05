@@ -1,6 +1,6 @@
 # Galactic LinkedIn Profile Guide — Operational Reference
 
-Purpose: turn Guido Penta's LinkedIn guide for developers into checklists Claude can apply to a profile the user pastes (text or PDF export).
+Purpose: turn Guido Penta's LinkedIn guide for developers into profile review checklists.
 
 Source: https://github.com/GuidoPenta/galactic-linkedin-profile-guide-for-developers (© Guido Penta). The full guide lives there; this file is an operational summary.
 Canonical (Italian) README: https://github.com/GuidoPenta/galactic-linkedin-profile-guide-for-developers/blob/main/README.md
@@ -9,14 +9,14 @@ License: MIT (Copyright (c) 2023 Guido Penta). Keep the attribution when you reu
 
 **Source labels.**
 - **[Guido]**: a rule or opinion from Guido's guide, with its § (links: EN translation, IT canonical). Quote it as "your guide says…".
-- **[pack]**: added by this skill (checks, templates, formulas, general advice). Not Guido's. Present it as Claude's own suggestion.
+- **[pack]**: checks, templates, formulas and general advice added by this skill.
 - Examples in the guide (Patryk's headline, the senior dev's About) are **inspiration**, not rules.
 
 ---
 
 ## How to use this reference [pack]
 
-- Claude cannot log in to LinkedIn. It works only on what the user pastes: profile text, a "Save to PDF" export, or screenshots.
+- Profile text, LinkedIn's "Save to PDF" export and screenshots can provide evidence for the review.
 - A PDF export does not show the photo, the banner or the Open-to-Work setting. Check which skills the export shows, and whether they appear tied to experiences; **ask** about the rest. Do not guess.
 - Go through the sections in the order below. For each one, report: what is there, what is missing, and a concrete rewrite (not generic advice).
 - Guido's goal is simple: **get found**. The profile should be attractive, but above all **keyword-friendly** [Guido, intro]. If the user is not job hunting, the same rules still help them position the profile.
@@ -53,7 +53,7 @@ Template written by this skill [pack], not from Guido's guide (adapt to the user
 ### Open to Work [Guido, §1]
 - Guido expects readers to think the green **#OpenToWork** frame isn't great, and to fear their current employer will "catch them out" if they turn it on.
 - His answer: signal availability **to recruiters only**. Path: *Open to* button under the profile photo → *Finding a new job* → scroll to "choose who can see you're open" → **Recruiters only**. Recruiters using LinkedIn Recruiter then see an "open to work" note on the profile, and the public does not.
-- Claude cannot see this setting. **Ask** the user which mode they use and mention "Recruiters only" if they worry about discretion.
+- If the setting is unknown, ask which mode the candidate uses. Mention "Recruiters only" if discretion matters.
 
 ### Activity and posting [Guido, §1]
 - The advice that circulates online, which Guido reports but does not impose: **3–4 posts per week and at least 2 comments per day** keep the profile "algorithm-friendly".
@@ -123,7 +123,7 @@ Guido's example (inspiration, not a rule) is a senior dev's About. He calls it e
 - "keeping in mind the Agile Manifesto:" → Kanban/Scrum plus tools
 - "following the DevOps philosophy with:" → CI/CD, containers, cloud
 
-Template written by this skill [pack], not from Guido's guide. Claude can fill it with the user's data:
+Template from this skill [pack]. Adapt it to the candidate's experience:
 ```
 <1–3 sentences: who I am, how I approach work, what I'm focused on now.>
 
@@ -256,20 +256,20 @@ Checklist:
 
 ---
 
-## 12. Review output format for Claude [pack]
+## 12. Review structure [pack]
 
 When reviewing a pasted profile, produce:
 1. **Keyword map**: the user's target stack or roles, checked against where each keyword appears (Headline / About / Experience / Skills). Flag gaps.
-2. **Section-by-section verdict** following §2–§11 above: present / weak / missing, each with a concrete rewrite. Say which points are Guido's rules and which are Claude's suggestions.
+2. **Section-by-section verdict** following §2–§11 above: present / weak / missing, each with a concrete rewrite. Identify the source of each recommendation.
 3. **Questions for what the export can't show**: photo, banner, Open-to-Work mode, skills the export doesn't show, skills tied to roles, company pages linked.
 4. **Top 3 fixes** ranked by impact on being found. Usually headline, Skills and experience descriptions.
-5. Remind the user that Claude writes drafts only. The user updates LinkedIn and sends any message themselves.
+5. Keep profile rewrites and recruiter replies ready to paste.
 
 ---
 
 ## 13. Consistency with CV [pack]
 
-Cross-check added by this skill [pack], not a rule from Guido's guides. Claude compares CV and LinkedIn and points out mismatches; the user decides. The LinkedIn guide does refer to the CV guide as its companion: https://github.com/GuidoPenta/galactic-CV-guide-for-developers (Italian `index.md` canonical; English: `docs/english.md`).
+Cross-check added by this skill [pack]. Compare the CV and LinkedIn and point out mismatches for the candidate to resolve. The LinkedIn guide refers to the CV guide as its companion: https://github.com/GuidoPenta/galactic-CV-guide-for-developers (Italian `index.md` canonical; English: `docs/english.md`).
 
 Check:
 - [ ] **Roles, companies, dates**: check that titles, employers and dates match, and that the career progression (e.g. Dev → Senior → Team Lead, CV §5) reads the same way.
